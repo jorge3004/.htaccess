@@ -1,0 +1,12 @@
+# .htaccess main domain to subdirectory redirect.
+
+# RewriteRule .\* - [E=Cache-Control:no-cache]
+# <IfModule mod_rewrite.c>
+#   RewriteEngine on
+#   RewriteRule ^static/(js|css)/([a-z]+)-([0-9]+)\.(js|css)$ /site/$1/$2.$4 [R=302,NC,L]
+# </IfModule>
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^jir3d.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.jir3d.com$
+RewriteCond %{REQUEST_URI} !React_JIR3D/docs/
+RewriteRule (.*) /React_JIR3D/docs/$1 [L]
